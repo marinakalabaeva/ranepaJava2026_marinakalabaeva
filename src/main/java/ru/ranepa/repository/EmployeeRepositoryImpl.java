@@ -21,7 +21,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Optional<Employee> findById(Long id) {
-        return Optional.of(employees.get(id));
+        return Optional.ofNullable(employees.get(id));
     }
 
     @Override

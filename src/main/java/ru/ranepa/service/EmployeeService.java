@@ -3,10 +3,8 @@ package ru.ranepa.service;
 import ru.ranepa.model.Employee;
 import ru.ranepa.repository.EmployeeRepository;
 
-import javax.management.AttributeList;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.RoundingMode;
 import java.util.Optional;
 
 
@@ -28,7 +26,7 @@ public class EmployeeService {
             return BigDecimal.ZERO;
         }
 
-        return sumSalary.divide(BigDecimal.valueOf(count), BigDecimal.ROUND_HALF_UP);
+        return sumSalary.divide(BigDecimal.valueOf(count), RoundingMode.HALF_UP);
     }
 
     public Employee findHighestPaid() {
@@ -63,6 +61,3 @@ public class EmployeeService {
         return employeeRepository.findById(id);
     }
 }
-
-
-
